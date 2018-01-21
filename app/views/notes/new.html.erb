@@ -1,0 +1,7 @@
+<h1> create note </h1>
+<hr />
+
+<%= form_for @note do |f| %>
+  <%= f.text_area :description %>
+  <%= f.submit "Submit" %>
+<% end %>

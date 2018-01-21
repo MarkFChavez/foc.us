@@ -1,7 +1,12 @@
 <h1> Foc.us </h1>
 <hr />
 
-<h3> Notes </h3>
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+<h3> 
+  Notes 
+  <%= link_to "create one", new_note_path %>
+</h3>
 <% if @notes.any? %>
 
   <% @notes.each do |note| %>
@@ -16,7 +21,10 @@
 
 <% end %>
 
-<h3> Todos </h3>
+<h3> 
+  Todos 
+  <%= link_to "create one", new_todo_path %>
+</h3>
 
 <% if @todos.any? %>
 

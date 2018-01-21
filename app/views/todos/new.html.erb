@@ -1,0 +1,17 @@
+<h1> create todo </h1>
+<hr />
+
+<%= form_for @todo do |f| %>
+  <label> Description </label>
+  <%= f.text_area :description %>
+
+  <h4> action items </h4>
+  <%= f.fields_for :action_items  do |ff| %>
+    <div>
+      <%= ff.label :description %>
+      <%= ff.text_area :description %>
+    </div>
+  <% end %>
+
+  <%= f.submit "Submit" %>
+<% end %>
