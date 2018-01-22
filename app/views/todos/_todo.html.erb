@@ -1,0 +1,11 @@
+<div class="#{dom_id(todo)}">
+  <span> <%= todo.description %> </span>
+  <div style="margin-left: 10px">
+    <% todo.action_items.each do |item| %>
+      <div>
+        <%= check_box_tag :done, item.done, item.done %>
+        <%= item.description %>
+      </div>
+    <% end %>
+  </div>
+</div>

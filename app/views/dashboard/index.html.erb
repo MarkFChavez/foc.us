@@ -1,6 +1,6 @@
 <div class="w-full bg-green-light border-r-2 border-black">
   <div class="float-right bg-black text-white p-3">
-    <span class="custom-font"> NOTES </span>
+    <span class="text-xl custom-font"> NOTES </span>
   </div>
   <div class="clearfix"></div>
 
@@ -17,9 +17,17 @@
 
 <div class="w-full bg-indigo border-l-2 border-black">
   <div class="float-left bg-black text-white p-3">
-    <span class="custom-font"> TODOS </span>
+    <span class="text-xl custom-font"> TODOS </span>
   </div>
   <div class="clearfix"></div>
 
-  <!-- <%= render "todos", todos: @todos %> -->
+  <div class="mt-4 pl-2">
+    <% if @todos.any? %>
+      <%= render @todos %>
+    <% else %>
+      <div class="text-center">
+        <span class="custom-font"> NOTHING FOUND! </span>
+      </div>
+    <% end %>
+  </div>
 </div>
