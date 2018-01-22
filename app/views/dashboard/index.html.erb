@@ -1,6 +1,9 @@
 <div class="overflow-auto w-full bg-yellow-darkest border-r-2 border-black">
   <div class="float-right bg-black text-white p-3">
-    <span class="text-xl custom-font"> NOTES </span>
+    <span class="uppercase text-xl custom-font">
+      <%= link_to "+", new_note_path, class: "text-white no-underline hover:underline" %>
+      <span class="underline">notes</span>
+    </span>
   </div>
   <div class="clearfix"></div>
 
@@ -17,7 +20,10 @@
 
 <div class="overflow-auto w-full bg-purple-darker border-l-2 border-black">
   <div class="float-left bg-black text-white p-3">
-    <span class="text-xl custom-font"> TODOS </span>
+    <span class="uppercase text-xl custom-font">
+      <span class="underline">todos</span>
+      <%= link_to "+", new_todo_path, class: "text-white no-underline hover:underline" %>
+    </span>
   </div>
   <div class="clearfix"></div>
 
