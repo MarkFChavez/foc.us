@@ -1,17 +1,36 @@
-<h1> create todo </h1>
-<hr />
+<div class="sm:w-full md:w-3/4 mx-auto px-8 py-8">
+  <div class="text-center">
+    <span class="text-2xl custom-font uppercase underline"> add a todo </span>
 
-<%= form_for @todo do |f| %>
-  <label> Description </label>
-  <%= f.text_area :description %>
+  </div>
 
-  <h4> action items </h4>
-  <%= f.fields_for :action_items  do |ff| %>
-    <div>
-      <%= ff.label :description %>
-      <%= ff.text_area :description %>
-    </div>
-  <% end %>
+  <div class="mt-8">
+    <%= form_for @todo do |f| %>
+      <%= f.label :description, class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
+      <div>
+        <%= f.text_area :description, class: "custom-font p-4 w-full h-64 appearance-none shadow border-4 border-black" %>
+      </div>
 
-  <%= f.submit "Submit" %>
-<% end %>
+      <div class="mt-2">
+        <div class="mb-4">
+          <span class="text-sm custom-font uppercase bg-black text-white p-2"> your action items </span>
+        </div>
+
+        <%= f.fields_for :action_items do |action_item| %>
+          <%= render "action_item_fields", f: action_item %>
+        <% end %>
+        <div class="mt-4 links">
+          <%= link_to_add_association "add", f, :action_items, class: "uppercase custom-font text-sm" %>
+        </div>
+      </div>
+
+      <div class="mt-4 text-center">
+        <%= f.submit "Publish", class: "text-white bg-black p-4 custom-font uppercase cursor-pointer" %>
+
+        <div class="mt-4"> 
+          <%= link_to "Forget it. I wish to go back to dashboard!", root_path, class: "uppercase custom-font text-black text-sm" %> 
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

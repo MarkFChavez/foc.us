@@ -1,0 +1,15 @@
+<div class="nested-fields flex mb-2">
+  <div class="py-1">
+    <span class="custom-font text-2xl"> &#8594; </span>
+  </div>
+
+  <div>
+    <%= f.text_field :description, placeholder: "todo...", class: "w-full custom-font p-2 appearance-none shadow border-4 border-black" %>
+  </div>
+
+  <% if f.index != 0 %>
+    <div class="py-3 ml-2">
+      <%= link_to_remove_association "remove", f, class: "custom-font text-xs text-red text-xs" %>
+    </div>
+  <% end %>
+</div>
