@@ -1,18 +1,4 @@
-<!--
-<div class="#{dom_id(todo)}">
-  <span> <%= todo.description %> </span>
-  <div style="margin-left: 10px">
-    <% todo.action_items.each do |item| %>
-      <div>
-        <%= check_box_tag :done, item.done, item.done %>
-        <%= item.description %>
-      </div>
-    <% end %>
-  </div>
-</div>
--->
-
-<div class="#{dom_id(todo)} max-w-md mb-4 float-left border-t-2 border-r-2 border-b-2 border-black p-4 bg-yellow-dark text-black">
+<div class="#{dom_id(todo)} max-w-md mb-4 float-left border-t-2 border-r-2 border-b-2 border-black p-4 bg-purple-light">
   <div>
     <span class="custom-font text-sm tracking-wide leading-loose">
       <%= todo.description %>

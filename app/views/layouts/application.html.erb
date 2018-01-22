@@ -11,12 +11,12 @@
   </head>
 
   <body>
-    <div class="flex overflow-auto">
+    <div class="flex h-screen overflow-hidden">
       <%= yield %>
 
       <% if user_signed_in? %>
-        <div class="fixed pin-b pin-r bg-black p-4">
-          <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "custom-font text-white no-underline text-sm" %>
+        <div class="fixed pin-b pin-r hover:bg-red bg-black p-4">
+          <%= link_to "logout", destroy_user_session_path, method: :delete, class: "uppercase custom-font text-white no-underline text-sm" %>
         </div>
       <% end %>
     </div>
