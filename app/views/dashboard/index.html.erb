@@ -1,49 +1,25 @@
-<h1> Foc.us </h1>
-<hr />
+<div class="w-full bg-green-light border-r-2 border-black">
+  <div class="float-right bg-black text-white p-3">
+    <span class="custom-font"> NOTES </span>
+  </div>
+  <div class="clearfix"></div>
 
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
-
-<h3> 
-  Notes 
-  <%= link_to "create one", new_note_path %>
-</h3>
-<% if @notes.any? %>
-
-  <% @notes.each do |note| %>
-    <div class="#{dom_id(note)}">
-      <%= note.description %>
-    </div>
-  <% end %>
-
-<% else %>
-
-  <div> No notes </div>
-
-<% end %>
-
-<h3> 
-  Todos 
-  <%= link_to "create one", new_todo_path %>
-</h3>
-
-<% if @todos.any? %>
-
-  <% @todos.each do |todo| %>
-    <div class="#{dom_id(todo)}">
-      <span> <%= todo.description %> </span>
-      <div style="margin-left: 10px">
-        <% todo.action_items.each do |item| %>
-          <div> 
-            <%= check_box_tag :done, item.done, item.done %>
-            <%= item.description %>
-          </div>
-        <% end %>
+  <div class="mt-4 pl-2">
+    <% if @notes.any? %>
+      <%= render @notes %>
+    <% else %>
+      <div class="text-center">
+        <span class="custom-font"> NOTHING FOUND! </span>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+</div>
 
-<% else %>
-  
-  <div> No todos </div>
+<div class="w-full bg-indigo border-l-2 border-black">
+  <div class="float-left bg-black text-white p-3">
+    <span class="custom-font"> TODOS </span>
+  </div>
+  <div class="clearfix"></div>
 
-<% end %>
+  <!-- <%= render "todos", todos: @todos %> -->
+</div>

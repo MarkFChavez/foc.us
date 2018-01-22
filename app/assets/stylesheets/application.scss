@@ -1,1 +1,9 @@
-@import "bootstrap";
+.custom-font {
+  font-family: 'Press Start 2P', cursive;
+}
+
+header {
+  span {
+    @extend .custom-font;
+  }
+}
