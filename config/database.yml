@@ -22,5 +22,5 @@ test:
 
 production:
   <<: *default
-  adapter: postgres
+  adapter: postgresql
   database: db/focusdb
