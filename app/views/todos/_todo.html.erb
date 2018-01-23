@@ -19,5 +19,11 @@
       </div>
     <% end %>
   </div>
+
+  <div class="flex mt-4 float-right">
+    <%= link_to "edit", "#", class: "mr-2 text-black text-xs custom-font" %>
+    <%= link_to "remove", todo_path(todo), method: :delete, class: "text-red-darker text-xs custom-font", data: { confirm: "Are you not going to do this anymore?" } %>
+  </div>
+  <div class="clearfix"></div>
 </div>
 <div class="clearfix"></div>

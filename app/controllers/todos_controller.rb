@@ -14,6 +14,13 @@ class TodosController < ApplicationController
     end
   end
 
+  def destroy
+    @todo = current_user.todos.find(params[:id])
+    @todo.destroy
+
+    redirect_to root_url
+  end
+
   private
 
     def todo_params
