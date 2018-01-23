@@ -1,7 +1,6 @@
 class TodosController < ApplicationController
   def new
     @todo = Todo.new
-    @todo.action_items.build
   end
 
   def create
@@ -11,6 +10,20 @@ class TodosController < ApplicationController
       redirect_to root_url
     else
       render :new
+    end
+  end
+
+  def edit
+    @todo = current_user.todos.find(params[:id])
+  end
+
+  def update
+    @todo = current_user.todos.find(params[:id])
+
+    if @todo.update_attributes(todo_params)
+      redirect_to root_url
+    else
+      render :edit
     end
   end
 

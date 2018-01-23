@@ -8,12 +8,8 @@
   <div class="mt-3 ml-5">
     <% todo.action_items.each do |item| %>
       <div class="ml-4 mb-2">
-        <span class="text-xl mr-2">
-          <% if item.done? %>
-            &#10003;
-          <% else %>
-            x
-          <% end %>
+        <span class="custom-font text-xs">
+          &gt;
         </span>
         <span class="custom-font text-xs"> <%= item.description %> </span>
       </div>
@@ -21,7 +17,7 @@
   </div>
 
   <div class="flex mt-4 float-right">
-    <%= link_to "edit", "#", class: "mr-2 text-black text-xs custom-font" %>
+    <%= link_to "edit", edit_todo_path(todo), class: "mr-2 text-black text-xs custom-font" %>
     <%= link_to "remove", todo_path(todo), method: :delete, class: "text-red-darker text-xs custom-font", data: { confirm: "Are you not going to do this anymore?" } %>
   </div>
   <div class="clearfix"></div>
