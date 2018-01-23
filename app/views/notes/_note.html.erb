@@ -11,6 +11,10 @@
       <%= format_date(note.created_at) %>
     </small>
   </div>
+
+  <div class="mt-2 text-right">
+    <%= link_to "remove", note_path(note), method: :delete, class: "text-red-dark text-xs custom-font", data: { confirm: "Is this not important anymore?" } %>
+  </div>
 </div>
 
 <div class="clearfix"></div>
