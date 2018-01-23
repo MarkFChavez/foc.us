@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   root "dashboard#index"
 
-  resources :notes, only: [:new, :create, :destroy]
+  resources :notes, only: [:new, :create, :edit, :update, :destroy]
   resources :todos, only: [:new, :create]
 end

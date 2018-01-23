@@ -13,6 +13,20 @@ class NotesController < ApplicationController
     end
   end
 
+  def edit
+    @note = current_user.notes.find(params[:id])
+  end
+
+  def update
+    @note = current_user.notes.find(params[:id])
+
+    if @note.update_attributes(note_params)
+      redirect_to root_url
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @note = current_user.notes.find(params[:id])
     @note.destroy

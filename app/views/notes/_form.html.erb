@@ -1,0 +1,12 @@
+<%= f.label :description, class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
+<div>
+  <%= f.text_area :description, placeholder: "Write something you need to remember", class: "custom-font p-4 w-full h-64 appearance-none shadow border-4 border-black" %>
+</div>
+
+<div class="text-center">
+  <%= f.submit "Publish", class: "text-white bg-black p-4 custom-font uppercase cursor-pointer" %>
+
+  <div class="mt-4">
+    <%= link_to "Forget it. I wish to go back to dashboard!", root_path, class: "uppercase custom-font text-black text-sm" %>
+  </div>
+</div>
