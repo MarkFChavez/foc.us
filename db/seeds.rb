@@ -1,12 +1,14 @@
-mark = User.new(email: "mjfchavez@gmail.com")
-mark.password = "foobar123"
-mark.save!
-
 work = Category.create(title: "work")
 personal = Category.create(title: "personal")
 tech = Category.create(title: "tech")
 learning = Category.create(title: "learning")
 other = Category.create(title: "other")
+
+return unless Rails.env.development?
+
+mark = User.new(email: "mjfchavez@gmail.com")
+mark.password = "foobar123"
+mark.save!
 
 note = mark.notes.create(
   description: %Q(
