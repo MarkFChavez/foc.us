@@ -7,6 +7,11 @@ class NotesController < ApplicationController
     @note = current_user.notes.build(note_params)
 
     if @note.save
+      item_categories = Array(params[:category_ids]).reject(&:empty?).inject([]) do |collection, id|
+        collection << ItemCategory.new(subject: @note, category_id: id)
+      end
+      @note.item_categories = item_categories
+
       redirect_to root_url
     else
       render :new
@@ -21,6 +26,11 @@ class NotesController < ApplicationController
     @note = current_user.notes.find(params[:id])
 
     if @note.update_attributes(note_params)
+      item_categories = Array(params[:category_ids]).reject(&:empty?).inject([]) do |collection, id|
+        collection << ItemCategory.new(subject: @note, category_id: id)
+      end
+      @note.item_categories = item_categories
+
       redirect_to root_url
     else
       render :edit

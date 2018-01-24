@@ -5,12 +5,22 @@
     </span>
   </div>
 
-  <div class="mt-2 text-right">
-    <small class="custom-font text-xs">
-      &#128467;
-      <%= format_date(note.created_at) %>
-    </small>
+  <div class="mt-2 float-right">
+    <div class="text-right">
+      <small class="custom-font text-xs">
+        &#128467;
+        <%= format_date(note.created_at) %>
+      </small>
+    </div>
+    <% if note.categories.any? %>
+      <div class="flex flex-row-reverse mt-2">
+        <% note.categories.each do |category| %>
+          <small style="font-size: 10px" class="uppercase font-bold bg-purple-dark text-white p-2 self-l-spacing-wide custom-font mr-2"> <%= category.title %> </small>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+  <div class="clearfix"></div>
 
   <div class="flex mt-4 float-right">
     <%= link_to "edit", edit_note_path(note), class: "mr-2 text-blue-darker text-xs custom-font" %>

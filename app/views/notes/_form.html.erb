@@ -1,9 +1,18 @@
-<%= f.label :description, class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
-<div>
-  <%= f.text_area :description, placeholder: "Write something you need to remember", class: "custom-font p-4 w-full h-64 appearance-none shadow border-4 border-black" %>
+<div class="form-item">
+  <%= f.label :description, class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
+  <div>
+    <%= f.text_area :description, placeholder: "Write something you need to remember", class: "custom-font p-4 w-full h-64 appearance-none shadow border-4 border-black" %>
+  </div>
 </div>
 
-<div class="text-center">
+<div class="form-item mt-3">
+  <%= f.label :category_ids, "Categories", class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
+  <div>
+    <%= select_tag :category_ids, options_for_select(Category.all.pluck(:title, :id), f.object.category_ids), { multiple: true, class: "w-full h-64 bg-black text-white custom-font text-xl py-4 px-2" } %>
+  </div>
+</div>
+
+<div class="text-center mt-3">
   <%= f.submit "Publish", class: "text-white bg-black p-4 custom-font uppercase cursor-pointer" %>
 
   <div class="mt-4">

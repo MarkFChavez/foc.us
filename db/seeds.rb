@@ -1,33 +1,28 @@
-@user = User.new(email: "mjfchavez@gmail.com")
-@user.password = "foobar123"
-@user.save!
+mark = User.new(email: "mjfchavez@gmail.com")
+mark.password = "foobar123"
+mark.save!
 
-@user.notes.create!(description: "I love this note!")
-@user.notes.create!(description: "NBA Live")
-@user.notes.create!(description: "Indian Summer Travel Video")
-@user.notes.create!(description: "Prep for tomorrow!")
-@user.notes.create!(description: "Finish this Rails app!")
-@user.notes.create!(description: "In addition to the standard responsive variations, text style utilties also come in hover: variations that apply the given text style on hover.")
-@user.notes.create!(description: "If you don't plan to use the text style utilities in your project, you can disable them entirely by setting the textStyle property to false in the modules section of your config file:")
+work = Category.create(title: "work")
+personal = Category.create(title: "personal")
+tech = Category.create(title: "tech")
+learning = Category.create(title: "learning")
+other = Category.create(title: "other")
 
-todo1 = @user.todos.create!(
-  description: "Research about blockchain"
+note = mark.notes.create(
+  description: %Q(
+    The Ideal Team Player: How to Recognize and
+    Cultivate the Three Essential Virtues: A Leadership
+    Fable
+  )
 )
-todo2 = @user.todos.create!(
-  description: "Research about remittances in the Philippines"
-)
+note.item_categories.create(category: personal)
 
-todo1.action_items.create!(
-  description: "What is Bitcoin?",
-  done: false
+note = mark.notes.create(
+  description: %Q(
+    Blockchain is a network of computers having an identical
+    copy of the database and changing its state/records by a
+    common agreement based on pure mathematics.
+  )
 )
-
-todo1.action_items.create!(
-  description: "What is Ethereum?",
-  done: false
-)
-
-todo2.action_items.create!(
-  description: "How it works?",
-  done: false
-)
+note.item_categories.create(category: work)
+note.item_categories.create(category: personal)
