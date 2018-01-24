@@ -1,0 +1,19 @@
+<div class="overflow-auto w-full bg-grey-light border-r-2 border-black">
+  <div class="md:float-right bg-black text-white p-3">
+    <span class="uppercase text-xl custom-font">
+      <%= link_to "+", new_note_path, class: "text-black bg-white no-underline p-1" %>
+      <span class="underline">notes</span>
+    </span>
+  </div>
+  <div class="clearfix"></div>
+
+  <div class="mt-4 pl-2">
+    <% if @notes.any? %>
+      <%= render @notes %>
+    <% else %>
+      <div class="text-center">
+        <span class="custom-font"> NOTHING FOUND! </span>
+      </div>
+    <% end %>
+  </div>
+</div>
