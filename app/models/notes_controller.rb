@@ -4,10 +4,13 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = current_user.notes.build(note_params)
+    result = Note::Operations::Create.(params[:note], { 
+      current_user: current_user,
+      category_ids: params[:category_ids]
+    })
+    @note = result["model"]
 
-    if @note.save
-      @note.item_categories = initialise_item_categories(@note)
+    if result.success?
       redirect_to root_url
     else
       render :new
