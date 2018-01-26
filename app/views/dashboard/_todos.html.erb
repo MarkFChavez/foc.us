@@ -1,0 +1,20 @@
+
+<div class="overflow-auto w-full bg-red-light border-l-2 border-black">
+  <div class="md:float-left bg-black text-white p-3">
+    <span class="uppercase text-xl custom-font">
+      <span class="underline">todos</span>
+      <%= link_to "+", new_todo_path, class: "text-black bg-white no-underline p-1" %>
+    </span>
+  </div>
+  <div class="clearfix"></div>
+
+  <div class="mt-4 pr-2">
+    <% if @todos.any? %>
+      <%= render @todos %>
+    <% else %>
+      <div class="text-center">
+        <span class="custom-font"> NOTHING FOUND! </span>
+      </div>
+    <% end %>
+  </div>
+</div>
