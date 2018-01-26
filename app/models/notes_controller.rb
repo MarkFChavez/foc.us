@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    result = Note::Operations::Create.(params[:note], { 
+    result = Note::Operations::Create.(params[:note], {
       current_user: current_user,
       category_ids: params[:category_ids]
     })
@@ -22,10 +22,14 @@ class NotesController < ApplicationController
   end
 
   def update
-    @note = current_user.notes.find(params[:id])
+    result = Note::Operations::Update.({ description: params[:note][:description] }, {
+      note_id: params[:id],
+      current_user: current_user,
+      category_ids: params[:category_ids]
+    })
+    @note = result["model"]
 
-    if @note.update_attributes(note_params)
-      @note.item_categories = initialise_item_categories(@note)
+    if result.success?
       redirect_to root_url
     else
       render :edit
@@ -39,15 +43,4 @@ class NotesController < ApplicationController
     redirect_to root_url
   end
 
-  private
-
-    def note_params
-      params.require(:note).permit(:description)
-    end
-
-    def initialise_item_categories(note)
-      Array(params[:category_ids]).reject(&:empty?).inject([]) do |collection, id|
-        collection << ItemCategory.new(subject: note, category_id: id)
-      end
-    end
 end
