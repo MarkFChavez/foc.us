@@ -1,0 +1,9 @@
+<div class="text-center">
+  <span class="uppercase custom-font text-3xl">
+    <%= t('date.abbr_day_names')[day.wday] %>
+  </span>
+</div>
+
+<div class="flex mb-2 justify-center <%= Date.current == day ? 'bg-indigo-darker text-white' : 'bg-red-dark text-white' %> px-2 py-4">
+  <span class="custom-font text-xs"> <%= format_date(day) %> </span>
+</div>

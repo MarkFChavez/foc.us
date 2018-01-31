@@ -1,0 +1,7 @@
+<% if sorted_events.fetch(day, []).empty? %>
+  <span class="uppercase custom-font text-xs"> no events found </span>
+<% else %>
+  <% sorted_events.fetch(day, []).each do |event| %>
+    <%= render event %>
+  <% end %>
+<% end %>

@@ -1,58 +1,12 @@
-<div class="flex py-8 bg-black text-white">
-  <div class="w-full text-center">
-    <span class="calendar-title custom-font text-3xl self-l-spacing-wide">
-      <%= t('date.month_names')[start_date.month] %> <%= start_date.year %>
-    </span>
-
-    <div class="mt-3">
-      <%= link_to '&lt;'.html_safe, calendar.url_for_previous_view, class: "custom-font text-3xl no-underline text-red-dark" %>
-      <% if calendar.number_of_weeks == 1 %>
-        <span class="text-2xl mx-2 uppercase custom-font">Week <%= calendar.week_number %></span>
-      <%else%>
-        <span class="text-2xl mx-2 uppercase custom-font">Week <%= calendar.week_number %> - <%= calendar.end_week %></span>
-      <%end%>
-      <%= link_to '&gt;'.html_safe, calendar.url_for_next_view, class: "custom-font text-3xl no-underline text-red-dark" %>
-    </div>
-
-    <div class="mt-3">
-      <%= link_to "back to dashboard", root_path, class: "uppercase custom-font text-xs text-white" %>
-    </div>
-  </div>
-</div>
+<%= render 'simple_calendar/calendar_heading', calendar: calendar, start_date: start_date %>
 
 <div class="sm:block md:flex overflow-x-scroll h-screen">
   <% date_range.slice(0, 7).each do |day| %>
     <div class="flex-1 border-4 border-black py-4">
+      <%= render 'simple_calendar/day_heading', day: day %>
+
       <div class="text-center">
-        <span class="uppercase custom-font text-3xl">
-          <%= t('date.abbr_day_names')[day.wday] %>
-        </span>
-      </div>
-  
-      <div>
-        <div class="flex mb-2 justify-center <%= Date.current == day ? 'bg-indigo-darker text-white' : 'bg-red-dark text-white' %> px-2 py-4">
-          <span class="custom-font text-xs"> <%= format_date(day) %> </span>
-        </div>
-
-        <div class="text-center">
-          <% if sorted_events.fetch(day, []).empty? %>
-            <span class="uppercase custom-font text-xs"> no events found </span>
-          <% else %>
-            <% sorted_events.fetch(day, []).each do |event| %>
-              <div class="mb-2 bg-black text-white <%= event.multi_day_event? ? '' : 'border-r-8 border-l-8 border-red-dark' %> p-4">
-                <span class="uppercase custom-font text-sm">
-                  <%= event.name %>
-                </span>
-
-                <div class="mt-3">
-                  <span class="text-xs custom-font text-yellow-light">
-                    <%= format_time(event.start_time) %>
-                  </span>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
+        <%= render 'simple_calendar/events_list', sorted_events: sorted_events, day: day %>
       </div>
     </div>
   <% end %>
