@@ -24,6 +24,6 @@
 <div class="form-item mt-4">
   <%= f.label :color, "Color (optional)", class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
   <div>
-    <%= f.text_field :color, placeholder: "css color (e.g. #000, blue)", class: "custom-font p-4 w-full appearance-none shadow border-4 border-black" %>
+    <%= f.text_field :color, placeholder: "css color (e.g. #000, blue)", class: "custom-font p-4 w-full appearance-none shadow border-4 border-black", style: "color: #{f.object.color}" %>
   </div>
 </div>
