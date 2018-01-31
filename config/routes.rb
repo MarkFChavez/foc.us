@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resource :calendar, only: [:show]
 
+  resources :events, only: [:new, :create]
   resources :notes, only: [:new, :create, :edit, :update, :destroy]
   resources :todos, only: [:new, :create, :edit, :update, :destroy]
 end

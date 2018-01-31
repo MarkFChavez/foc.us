@@ -1,0 +1,28 @@
+<div class="form-item">
+  <%= f.label :name, class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
+  <div>
+    <%= f.text_field :name, placeholder: "what's up", class: "custom-font p-4 w-full appearance-none shadow border-4 border-black" %>
+  </div>
+</div>
+
+<div class="form-item mt-4">
+  <%= f.label :start_time, "Start Time", class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
+  <div>
+    <%= f.datetime_field :start_time, placeholder: "start", class: "custom-font p-4 w-full appearance-none shadow border-4 border-black"  %>
+  </div>
+</div>
+
+<div class="form-item mt-4">
+  <%= f.label :end_time, "End Time", class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
+  <div>
+    <%= f.datetime_field :end_time, placeholder: "end", class: "custom-font p-4 w-full appearance-none shadow border-4 border-black"  %>
+  </div>
+</div>
+
+<div class="text-center mt-4">
+  <%= f.submit "Create", class: "text-white bg-black p-4 custom-font uppercase cursor-pointer" %>
+
+  <div class="mt-4">
+    <%= link_to "Forget it. I wish to go back to calendar!", calendar_path, class: "uppercase custom-font text-black text-sm" %>
+  </div>
+</div>
