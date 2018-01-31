@@ -1,6 +1,6 @@
 <div class="sm:w-full md:w-3/4 mx-auto px-8 py-8">
   <div class="text-center">
-    <span class="text-2xl custom-font uppercase underline"> add an event </span>
+    <span class="text-2xl custom-font uppercase underline"> update your event </span>
   </div>
 
   <div class="mt-8">
@@ -8,7 +8,7 @@
       <%= render "form", f: f %>
 
       <div class="text-center mt-4">
-        <%= f.submit "Create", class: "text-white bg-black p-4 custom-font uppercase cursor-pointer" %>
+        <%= f.submit "Update", class: "text-white bg-black p-4 custom-font uppercase cursor-pointer" %>
 
         <div class="mt-4">
           <%= link_to "Forget it. I wish to go back to calendar!", calendar_path, class: "uppercase custom-font text-black text-sm" %>

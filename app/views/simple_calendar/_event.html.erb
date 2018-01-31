@@ -6,9 +6,9 @@
   </div>
 
   <div class="p-4">
-    <span class="uppercase custom-font text-sm">
+    <%= link_to edit_event_path(event), class: "no-underline uppercase custom-font text-sm text-white" do %>
       <%= event.name %>
-    </span>
+    <% end %>
 
     <div class="mt-3">
       <span class="text-xxs custom-font text-yellow-light">
