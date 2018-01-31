@@ -5,16 +5,25 @@
   </div>
 </div>
 
-<div class="form-item mt-4">
-  <%= f.label :start_time, "Start Time", class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
-  <div>
-    <%= f.datetime_field :start_time, placeholder: "start", class: "custom-font p-4 w-full appearance-none shadow border-4 border-black"  %>
+<div class="sm:block md:flex">
+  <div class="md:w-1/2 md:mr-1 mt-4">
+    <%= f.label :start_time, "Start Time", class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
+    <div>
+      <%= f.datetime_field :start_time, placeholder: "start", class: "custom-font p-4 w-full appearance-none shadow border-4 border-black"  %>
+    </div>
+  </div>
+
+  <div class="md:w-1/2 md:ml-1 mt-4">
+    <%= f.label :end_time, "End Time", class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
+    <div>
+      <%= f.datetime_field :end_time, placeholder: "end", class: "custom-font p-4 w-full appearance-none shadow border-4 border-black"  %>
+    </div>
   </div>
 </div>
 
 <div class="form-item mt-4">
-  <%= f.label :end_time, "End Time", class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
+  <%= f.label :color, "Color (optional)", class: "uppercase bg-black text-white p-2 custom-font text-sm" %>
   <div>
-    <%= f.datetime_field :end_time, placeholder: "end", class: "custom-font p-4 w-full appearance-none shadow border-4 border-black"  %>
+    <%= f.text_field :color, placeholder: "css color (e.g. #000, blue)", class: "custom-font p-4 w-full appearance-none shadow border-4 border-black" %>
   </div>
 </div>

@@ -1,4 +1,6 @@
-<div class="mb-2 bg-black text-white <%= event.multi_day_event? ? '' : 'border-r-8 border-l-8 border-red-dark' %>">
+<% color = event.color.present? ? event.color : '#cc1f1a' %>
+
+<div style="border-left: 8px solid <%= color %>; border-right: 8px solid <%= color %>" class="mb-2 bg-black text-white">
   <div class="text-right py-1 px-1">
     <%= link_to event_path(event), method: :delete, class: "text-xs text-red no-underline", data: { confirm: "Remove this event and its occurrences?" } do %>
       &#10060;
