@@ -15,7 +15,7 @@
     <% if note.categories.any? %>
       <div class="flex flex-row-reverse mt-2">
         <% note.categories.each do |category| %>
-          <small style="font-size: 10px" class="uppercase font-bold bg-purple-dark text-white p-2 self-l-spacing-wide custom-font mr-2"> <%= category.title %> </small>
+          <small class="text-xxs uppercase font-bold bg-purple-dark text-white p-2 self-l-spacing-wide custom-font mr-2"> <%= category.title %> </small>
         <% end %>
       </div>
     <% end %>
