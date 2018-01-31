@@ -1,6 +1,6 @@
 <%= render 'simple_calendar/calendar_heading', calendar: calendar, start_date: start_date %>
 
-<div class="sm:block md:flex overflow-x-scroll h-screen">
+<div class="flex overflow-x-scroll h-screen">
   <% date_range.slice(0, 7).each do |day| %>
     <div class="flex-1 border-4 border-black py-4">
       <%= render 'simple_calendar/day_heading', day: day %>
