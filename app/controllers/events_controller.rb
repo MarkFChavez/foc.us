@@ -5,9 +5,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(event_params)
+    result = Event::Operations::Create.(
+      params[:event],
+      { current_user: current_user }
+    )
+    @event = result["model"]
 
-    if @event.save
+    if result.success?
       redirect_to calendar_path(start_date: @event.start_time.to_date)
     else
       render :new
