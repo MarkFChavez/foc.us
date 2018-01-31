@@ -18,6 +18,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+
+    redirect_to calendar_path(start_date: @event.start_time.to_date)
+  end
+
   private
 
     def event_params
