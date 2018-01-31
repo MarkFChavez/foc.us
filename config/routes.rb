@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root "dashboard#index"
 
+  resource :calendar, only: [:show]
+
   resources :notes, only: [:new, :create, :edit, :update, :destroy]
   resources :todos, only: [:new, :create, :edit, :update, :destroy]
 end

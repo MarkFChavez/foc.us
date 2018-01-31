@@ -12,14 +12,12 @@
   </head>
 
   <body>
-    <div class="sm:block md:flex h-screen">
-      <%= yield %>
+    <%= yield %>
 
-      <% if user_signed_in? %>
-        <div class="fixed pin-b pin-r bg-black p-4">
-          <%= link_to "logout", destroy_user_session_path, method: :delete, class: "uppercase custom-font text-white no-underline text-sm" %>
-        </div>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="fixed pin-b pin-r bg-black p-4">
+        <%= link_to "logout", destroy_user_session_path, method: :delete, class: "uppercase custom-font text-white no-underline text-sm" %>
+      </div>
+    <% end %>
   </body>
 </html>

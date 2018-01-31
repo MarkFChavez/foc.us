@@ -9,6 +9,7 @@ gem 'devise'
 gem 'cocoon'
 gem 'jquery-rails'
 gem 'pg', '< 1.0'
+gem 'simple_calendar', '~> 2.0'
 
 gem 'trailblazer-rails'
 gem 'trailblazer-loader'
