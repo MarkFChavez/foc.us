@@ -16,6 +16,7 @@
 
     <% if user_signed_in? %>
       <div class="fixed pin-b pin-r bg-black p-4">
+        <%= link_to "calendar", calendar_path, class: "mr-2 uppercase custom-font text-white no-underline text-sm" %>
         <%= link_to "logout", destroy_user_session_path, method: :delete, class: "uppercase custom-font text-white no-underline text-sm" %>
       </div>
     <% end %>
