@@ -3,5 +3,5 @@ class Note < ApplicationRecord
   has_many :categories, through: :item_categories
   belongs_to :user
 
-  scope :latest, -> { order(created_at: :desc) }
+  scope :latest, -> { order(updated_at: :desc) }
 end

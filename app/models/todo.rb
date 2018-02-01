@@ -6,7 +6,7 @@ class Todo < ApplicationRecord
   has_many :categories, through: :item_categories
   belongs_to :user
 
-  scope :latest, -> { order(created_at: :desc) }
+  scope :latest, -> { order(updated_at: :desc) }
 
   accepts_nested_attributes_for :action_items, reject_if: :all_blank, allow_destroy: true
 end
