@@ -1,4 +1,4 @@
 <div class="sm:block md:flex h-screen">
-  <%= render "dashboard/notes" %>
-  <%= render "dashboard/todos" %>
+  <%= render "dashboard/notes", notes: @dashboard.notes %>
+  <%= render "dashboard/todos", todos: @dashboard.todos %>
 </div>
